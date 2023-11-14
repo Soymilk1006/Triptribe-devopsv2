@@ -11,24 +11,17 @@ variable "secondary_region" {
   default     = "ap-southeast-1"
 }
 
-variable "website_name" {
-  description = "website name"
-  type        = string
-  default     = "www.tribe-trip.com"
-
-}
-
 
 variable "s3_bucket_primary" {
   description = "main s3 bucket to store web frontend files"
   type        = string
-  default     = "www.tribe-trip.com-primary1234"
+  default     = "${var.domain_name}-primary1234"
 }
 
 variable "s3_bucket_secondary" {
   description = "secondary s3 bucket to store web frontend files in a different region for cloudfront origin failover"
   type        = string
-  default     = "www.tribe-trip.com-secondary1234"
+  default     = "${var.domain_name}-secondary1234"
 
 }
 
@@ -36,7 +29,7 @@ variable "s3_bucket_secondary" {
 variable "s3_bucket_logs" {
   description = "bucket to store main s3 bucket access log for future anlayse"
   type        = string
-  default     = "www.tribe-trip.com-logs1234"
+  default     = "${var.domain_name}-logs1234"
 
 }
 
@@ -52,5 +45,19 @@ variable "aws_iam_role_name" {
   description = "create a role for s3 bucket replication"
   type        = string
   default     = "tf-iam-role-bucket-replication2"
+
+}
+
+variable "domain_name" {
+  description = "website domain name"
+  type        = string
+
+
+}
+
+variable "route53_hosted_zone_id" {
+  description = "hosted zone id"
+  type        = string
+
 
 }

@@ -49,4 +49,16 @@ module "cdn-oac-bucket-policy-failover" {
 }
 
 
+resource "aws_route53_record" "cloudfront" {
+  name    = var.domain_name
+  type    = "A"
+  zone_id = var.route53_hosted_zone_id
+
+  alias {
+    name                   = module.cloud-front.cloud_front_my_distrib.domain_name
+    zone_id                = module.cloud-front.cloud_front_my_distrib.hosted_zone_id
+    evaluate_target_health = false
+  }
+}
+
 
