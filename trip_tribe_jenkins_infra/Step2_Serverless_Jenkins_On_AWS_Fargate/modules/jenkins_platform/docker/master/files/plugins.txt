@@ -1,0 +1,7 @@
+configuration-as-code:1670.v564dc8b_982d0
+workflow-aggregator:590.v6a_d052e5a_a_b_5
+amazon-ecs:1.41
+pipeline-aws:1.43
+git:4.14.1
+github:1.36.0
+job-dsl:1.81
