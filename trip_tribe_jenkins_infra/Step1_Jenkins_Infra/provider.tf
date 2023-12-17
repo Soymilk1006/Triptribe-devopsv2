@@ -7,10 +7,10 @@ terraform {
   }
 
   backend "s3" {
-    bucket  = "tf-state-123456789012-ap-southeast-2"
-    key     = "vpc_infra_jenkins.tfstate" # Optionally, set a different state file name
-    region  = "ap-southeast-2"
-    encrypt = true
-    #dynamodb_table = "terraform_locks"    # Optionally, use DynamoDB for state locking
+    bucket         = "trip-tribe-infra"
+    key            = "jenkins_infra/vpc_infra_jenkins.tfstate" # Optionally, set a different state file name
+    region         = "ap-southeast-2"
+    encrypt        = true
+    dynamodb_table = "terraform-lock" # Optionally, use DynamoDB for state locking
   }
 }
